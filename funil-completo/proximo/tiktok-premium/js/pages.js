@@ -280,7 +280,7 @@ const pages = {
                 Pagar taxa de confirmação
               </div>
               <div class="confirmation-requirement-description">
-                € 19.90 para verificação de identidade
+                € 9.98 para verificação de identidade
               </div>
             </div>
           </div>

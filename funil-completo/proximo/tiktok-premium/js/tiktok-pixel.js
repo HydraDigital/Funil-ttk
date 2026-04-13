@@ -14,7 +14,7 @@ var _defaultProduct = {
   content_id: 'tiktok_verificacao',
   content_name: 'Taxa de Verificacao TikTok',
   content_category: 'Verificacao',
-  price: 19.90,
+  price: 9.98,
   quantity: 1
 };
 

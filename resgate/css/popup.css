@@ -1,0 +1,464 @@
+/* popup.css — Checkout-style modal (WayMB-inspired) */
+
+/* === MODAL BASE === */
+#popup-modal[aria-hidden="true"]{ display:none !important; }
+#popup-modal[aria-hidden="false"]{ display:flex !important; }
+
+#popup-modal.popup-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+#popup-modal .popup-modal__overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#popup-modal .popup-modal__dialog{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  background: #f0f0f3;
+  border-radius: 22px;
+  padding: 0;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.06),
+    0 24px 80px rgba(0,0,0,.28);
+  animation: popIn .25s cubic-bezier(.16,1,.3,1);
+}
+
+/* Hide scrollbar but keep scroll */
+#popup-modal .popup-modal__dialog::-webkit-scrollbar{ width: 0; }
+
+@keyframes popIn{
+  from { transform: translateY(16px) scale(.97); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Close button hidden */
+#popup-modal .popup-modal__close{ display: none !important; }
+
+/* === HEADER === */
+.ck-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 20px;
+  background: #fff;
+  border-radius: 22px 22px 0 0;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.ck-logo{
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.ck-secure{
+  margin-top: 10px;
+  font: 500 12px/1.3 Inter, system-ui, -apple-system, sans-serif;
+  color: #999;
+  letter-spacing: .2px;
+}
+
+/* === PRODUTO + VALOR === */
+.ck-product{
+  margin: 14px 14px 0;
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(0,0,0,.05);
+}
+
+.ck-product-title{
+  font: 800 13px/1.3 Inter, system-ui, -apple-system, sans-serif;
+  color: #111;
+  letter-spacing: .5px;
+  margin-bottom: 12px;
+}
+
+.ck-amount-box{
+  background: #f5f5f7;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.ck-amount-label{
+  font: 500 12px/1.3 Inter, system-ui, -apple-system, sans-serif;
+  color: #777;
+  margin-bottom: 2px;
+}
+
+.ck-amount-value{
+  font: 800 26px/1.2 Inter, system-ui, -apple-system, sans-serif;
+  color: #e8115b;
+}
+
+/* === FORMULARIO === */
+.ck-form{
+  margin: 10px 14px 16px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(0,0,0,.05);
+}
+
+/* === TABS === */
+.ck-tabs{
+  display: flex;
+  gap: 0;
+  margin-bottom: 16px;
+  background: #f0f0f3;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.ck-tab{
+  flex: 1;
+  padding: 11px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font: 600 13px/1 Inter, system-ui, -apple-system, sans-serif;
+  color: #777;
+  cursor: pointer;
+  transition: all .18s;
+}
+
+.ck-tab:hover{
+  color: #444;
+}
+
+.ck-tab.is-active{
+  background: #e8115b;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(232,17,91,.25);
+}
+
+/* === METHOD PANELS === */
+.ck-method-panel{
+  margin-bottom: 4px;
+}
+
+.ck-mb-info{
+  padding: 16px;
+  background: #f7f7fa;
+  border-radius: 10px;
+  font: 500 13px/1.5 Inter, system-ui, -apple-system, sans-serif;
+  color: #666;
+  text-align: center;
+  border: 1px dashed rgba(0,0,0,.1);
+}
+
+/* === PHONE INPUT === */
+.ck-phone-group{
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.ck-phone-group:focus-within{
+  border-color: #e8115b;
+  box-shadow: 0 0 0 3px rgba(232,17,91,.08);
+}
+
+.ck-phone-prefix{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 12px;
+  background: #fafafa;
+  border-right: 1px solid #eee;
+  font: 600 13px/1 Inter, system-ui, -apple-system, sans-serif;
+  color: #444;
+  flex-shrink: 0;
+}
+
+.ck-flag{ font-size: 16px; }
+
+.ck-phone-input{
+  flex: 1;
+  border: 0;
+  outline: 0;
+  padding: 13px 12px;
+  font: 500 15px/1 Inter, system-ui, -apple-system, sans-serif;
+  color: #111;
+  background: transparent;
+}
+
+.ck-phone-input::placeholder{ color: #bbb; }
+
+/* === TERMS === */
+.ck-terms{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+  cursor: pointer;
+  font: 400 12px/1.4 Inter, system-ui, -apple-system, sans-serif;
+  color: #666;
+}
+
+.ck-terms input[type="checkbox"]{
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  accent-color: #e8115b;
+  cursor: pointer;
+}
+
+.ck-terms-link{
+  color: #e8115b;
+  text-decoration: none;
+  font-weight: 600;
+}
+.ck-terms-link:hover{ text-decoration: underline; }
+
+/* === PAY BUTTON === */
+.ck-pay-btn{
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 15px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e8115b 0%, #d40e50 100%);
+  color: #fff;
+  font: 700 15px/1 Inter, system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  transition: opacity .15s, transform .15s, box-shadow .15s;
+  box-shadow: 0 4px 14px rgba(232,17,91,.3);
+}
+
+.ck-pay-btn:hover:not(:disabled){
+  opacity: .93;
+  box-shadow: 0 6px 20px rgba(232,17,91,.35);
+}
+
+.ck-pay-btn:active:not(:disabled){
+  transform: scale(.985);
+}
+
+.ck-pay-btn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* === WAITING STATE === */
+.ck-waiting{
+  margin: 10px 14px 16px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 20px 20px;
+  border: 1px solid rgba(0,0,0,.05);
+  text-align: center;
+}
+
+.ck-waiting-icon{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.ck-waiting-title{
+  font: 700 15px/1.3 Inter, system-ui, -apple-system, sans-serif;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.ck-waiting-sub{
+  font: 500 13px/1.4 Inter, system-ui, -apple-system, sans-serif;
+  color: #777;
+  margin-bottom: 22px;
+}
+
+/* === MULTIBANCO RESULT === */
+.ck-mb-result{
+  margin: 10px 14px 16px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 20px 20px;
+  border: 1px solid rgba(0,0,0,.05);
+  text-align: center;
+}
+
+.ck-mb-result-title{
+  font: 700 15px/1.3 Inter, system-ui, -apple-system, sans-serif;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.ck-mb-data{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f7f7fa;
+  border-radius: 10px;
+}
+
+.ck-mb-row{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font: 500 14px/1.5 Inter, system-ui, -apple-system, sans-serif;
+}
+
+.ck-mb-label{ color: #777; }
+
+.ck-mb-value{
+  font-weight: 700;
+  color: #111;
+}
+
+.ck-mb-amount{
+  color: #e8115b;
+  font-weight: 800;
+}
+
+.ck-mb-logo{
+  width: 120px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* === SHARED === */
+#popup-modal .pix-spinner{
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 3px solid rgba(0,0,0,.08);
+  border-top-color: #e8115b;
+  animation: spin .65s linear infinite;
+}
+@keyframes spin{ to { transform: rotate(360deg); } }
+
+#popup-modal .pix-alert{
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #fef2f2;
+  border: 1px solid rgba(220,38,38,.15);
+  color: #991b1b;
+  font: 600 12px/1.4 Inter, system-ui, -apple-system, sans-serif;
+}
+
+#popup-modal .pix-foot{
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+
+#popup-modal .pix-foot__dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+@keyframes dotPulseAmber{
+  0%,100%{ box-shadow: 0 0 0 0 rgba(240,180,41,.0); }
+  50%    { box-shadow: 0 0 0 6px rgba(240,180,41,.15); }
+}
+@keyframes dotPulseGreen{
+  0%,100%{ box-shadow: 0 0 0 0 rgba(22,163,74,.0); }
+  50%    { box-shadow: 0 0 0 6px rgba(22,163,74,.15); }
+}
+@keyframes dotPulseRed{
+  0%,100%{ box-shadow: 0 0 0 0 rgba(239,68,68,.0); }
+  50%    { box-shadow: 0 0 0 6px rgba(239,68,68,.15); }
+}
+
+#popup-modal .pix-foot__dot.is-pending{
+  background: #f0b429;
+  animation: dotPulseAmber 1.5s ease-in-out infinite;
+}
+#popup-modal .pix-foot__dot.is-paid{
+  background: #16a34a;
+  animation: dotPulseGreen 1.5s ease-in-out infinite;
+}
+#popup-modal .pix-foot__dot.is-error{
+  background: #ef4444;
+  animation: dotPulseRed 1.5s ease-in-out infinite;
+}
+
+#popup-modal .pix-foot__text{
+  flex: 1;
+  min-width: 120px;
+  font: 500 12px/1.35 Inter, system-ui, -apple-system, sans-serif;
+  color: #777;
+}
+
+#popup-modal .pix-status-btn{
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font: 700 11px/1 Inter, system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  background: #111;
+  color: #fff;
+  transition: opacity .15s, transform .15s;
+  letter-spacing: .2px;
+  text-transform: uppercase;
+}
+#popup-modal .pix-status-btn:hover{ opacity: .85; }
+#popup-modal .pix-status-btn:active{ transform: scale(.98); }
+#popup-modal .pix-status-btn:disabled{
+  opacity: .45;
+  cursor: default;
+}
+
+#popup-modal .pix-toast{
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f7f7fa;
+  color: #333;
+  font: 600 11px/1.3 Inter, system-ui, -apple-system, sans-serif;
+  text-align: center;
+}
+
+body.popup-lock{ overflow: hidden; }
+
+/* === MOBILE === */
+@media (max-width: 420px){
+  #popup-modal.popup-modal{ padding: 8px; }
+  #popup-modal .popup-modal__dialog{
+    max-width: 100%;
+    border-radius: 18px;
+  }
+  .ck-header{ padding: 24px 16px 16px; border-radius: 18px 18px 0 0; }
+  .ck-logo{ width: 52px; height: 52px; }
+  .ck-product{ margin: 10px 10px 0; padding: 14px; }
+  .ck-form{ margin: 8px 10px 14px; padding: 14px; }
+  .ck-waiting{ margin: 8px 10px 14px; }
+  .ck-mb-result{ margin: 8px 10px 14px; }
+  .ck-amount-value{ font-size: 22px; }
+}

